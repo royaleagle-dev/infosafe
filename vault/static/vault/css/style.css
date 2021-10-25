@@ -1,0 +1,97 @@
+@import url('/static/vault/css/normalize.css');
+
+:root{
+	--light_green_bg: #38a806;
+}
+
+.container{
+	display: grid;
+	grid-template-areas: 
+		"header header"
+		"sidebar content"
+		"footer footer";
+	grid-template-columns:  20% 2fr;
+	grid-gap: 20px;
+}
+
+.header{
+	grid-area: header;
+	background-color: #38a806;
+	color: white;
+}
+
+.header {
+	display: flex;
+}
+
+.header div{
+	flex: 1;
+	padding: 5px;
+	align-items: center;
+}
+
+.sidebar{
+	grid-area: sidebar;
+	background-color: #f3f3f3;
+	text-align-center
+	
+}
+
+.content{
+	grid-area: content;
+}
+
+.footer{
+	grid-area: footer;
+}
+
+button{
+	padding: 10px;
+	border-radius: 10px;
+	border: none;
+	outline: none;
+}
+
+.sidebar{
+	height: 100vh;
+}
+
+.sidebar ul{
+	margin-inline-start: 0;
+	list-style-type:  none;
+	padding-inline-start: 0;
+}
+
+.sidebar ul li{
+	margin-bottom: 20px;
+	background-color: #38a806;
+	margin-bottom: 5%;
+	padding: 5%;
+	text-align: center;
+	width: 60%;
+}
+
+.sidebar ul li a{
+	text-decoration: none;
+	color: white;
+	font-size: 1rem;
+}
+
+.vault-container{
+	width: 55%;
+	background-color: #f3f3f3;
+	border-radius: 15px;
+	padding: 15px;
+	margin-bottom: 3%;
+}
+
+.vault-title{
+	font-weight: 300;
+	font-size: 1.1rem;
+}
+
+.green-bg{
+	background-color: var(--light_green_bg);
+	color: white;
+}
+

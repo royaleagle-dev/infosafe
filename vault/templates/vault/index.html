@@ -1,0 +1,26 @@
+{% extends "vault/base.html" %}
+
+{% block title %}
+Vaults
+{% endblock %}
+
+{% block content %}
+<div align = "center">
+	<div>
+		<h2 style = "margin-bottom: 3%">Vaults</h2>
+		{% for vault in vaults %}
+			<div class = "vault-container" align = "left">
+				<p class = "vault-title">{{vault.title}}</p>
+				<hr>
+				<div>
+					<button class = "green-bg">{{vault.category}}</button>
+					<button class = "green-bg">{{vault.date_created}}</button>
+					<button class = "green-bg">{{vault.last_edited}}</button>
+					<button class = "green-bg">View Vault</button>
+				</div>
+
+			</div>
+		{% endfor %}
+	</div>
+</div>
+{% endblock %}

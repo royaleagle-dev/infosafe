@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+{% load static %}
+	<head>
+		<title>{% block title%} {% endblock %}</title>
+		<link rel = "stylesheet" href = "{% static 'vault/css/style.css' %}">
+		<meta name = 'author' content = "Ayotunde Okunubi">
+		<meta name = "viewport" content = "width=device-width, initial-scale=1.0, shrink-to-fit=No">
+		<meta name = "description" content = "">
+		<meta name = "keywords" content = "">
+	</head>
+	<body>
+		<div class = "container">
+			<div class = "header">
+				<div>
+					<h2>InfoSec | <small>v 1.0</small></h2>
+				</div>
+				<div align = "right">
+					<button>Settings</button>
+					<button>Logout</button>
+				</div>
+			</div>
+			<div class = "sidebar">
+				<div align = "center">
+					<ul>
+						<li><a href = "">Vaults</a></li>
+						<li><a href = "">Locks</a></li>
+					</ul>
+
+				</div>
+				
+			</div>
+			<div class = "content">
+				{% block content %}
+				{% endblock %}
+			</div>
+			<div class = "footer">
+				
+			</div>
+		</div>
+	</body>
+</html>
