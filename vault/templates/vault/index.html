@@ -6,21 +6,30 @@ Vaults
 
 {% block content %}
 <div align = "center">
+	<div style = "width:40%;" class = "mb-4">
+		<form>
+			<div class = "input-group">
+				<input type = "text" name = "search" class = "form-control">
+				<div class = "input-group-append">
+					<input type = "submit" class = "btn btn-success">
+				</div>
+			</div>
+		</form>
+	</div>
 	<div>
-		<h2 style = "margin-bottom: 3%">Vaults</h2>
 		{% for vault in vaults %}
 			<div class = "vault-container" align = "left">
 				<p class = "vault-title">{{vault.title}}</p>
 				<hr>
 				<div>
-					<button class = "green-bg">{{vault.category}}</button>
-					<button class = "green-bg">{{vault.date_created}}</button>
-					<button class = "green-bg">{{vault.last_edited}}</button>
-					<button class = "green-bg">View Vault</button>
+					<button class = "btn btn-success" disabled >{{vault.category}}</button>
+					<button class = "btn btn-success" disabled >{{vault.date_created}}</button>
+					<button class = "btn btn-success" disabled >{{vault.last_edited}}</button>
+					<a href = "{% url 'vault:detail' vault.pk %}" class = "btn btn-primary text-light">View Vault</a>
 				</div>
-
 			</div>
 		{% endfor %}
+
 	</div>
 </div>
 {% endblock %}

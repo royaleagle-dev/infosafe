@@ -2,6 +2,8 @@
 
 :root{
 	--light_green_bg: #38a806;
+	--red:  #850606;
+	--blue: #2e6ced;
 }
 
 .container{
@@ -45,15 +47,19 @@
 	grid-area: footer;
 }
 
-button{
+button, a.green-bg, .btn{
 	padding: 10px;
 	border-radius: 10px;
 	border: none;
 	outline: none;
+	text-decoration: none;
+	cursor: pointer;
 }
 
 .sidebar{
 	height: 100vh;
+	position: absolute;
+	width: 200px;
 }
 
 .sidebar ul{
@@ -78,7 +84,7 @@ button{
 }
 
 .vault-container{
-	width: 55%;
+	width: 80%;
 	background-color: #f3f3f3;
 	border-radius: 15px;
 	padding: 15px;
@@ -93,5 +99,45 @@ button{
 .green-bg{
 	background-color: var(--light_green_bg);
 	color: white;
+}
+
+.bg-red{
+	color: white;
+	background-color: var(--red);
+}
+
+.bg-blue{
+	color: white;
+	background-color: var(--blue);
+}
+
+.add-btn-container{
+	height:100px;
+	width:100px;
+	box-shadow:5px 5px 10px lightgrey;
+	position:absolute;
+	z-index:100;
+	right:5%;
+	bottom: 5%;
+	border-radius:50%;
+	margin: 0 auto;
+}
+
+.add-btn-container span{
+	height: 100px;
+	width: 100px;
+	font-size:2em;
+	color: green;
+}
+
+.add-btn{
+	height: 100%;
+	width: 100%;
+	padding-top:35px;
+	padding-bottom:35px;
+}
+
+.add-btn:hover{
+	cursor: pointer;
 }
 

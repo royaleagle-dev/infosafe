@@ -4,39 +4,57 @@
 	<head>
 		<title>{% block title%} {% endblock %}</title>
 		<link rel = "stylesheet" href = "{% static 'vault/css/style.css' %}">
+		<link rel = "stylesheet" href = "{% static 'vault/vendor/bootstrap5/bootstrap.min.css' %}">
+		<link rel = "stylesheet" href = "{% static 'vault/vendor/fontawesome6/css/all.css' %}">
 		<meta name = 'author' content = "Ayotunde Okunubi">
 		<meta name = "viewport" content = "width=device-width, initial-scale=1.0, shrink-to-fit=No">
 		<meta name = "description" content = "">
 		<meta name = "keywords" content = "">
 	</head>
 	<body>
-		<div class = "container">
-			<div class = "header">
-				<div>
-					<h2>InfoSec | <small>v 1.0</small></h2>
+		<div class = "container-fluid">
+			<div class = "row mt-4">
+				<div class = "offset-md-1 col-md-2">
+					<ul class="nav flex-column">
+  				<li class="nav-item">
+    				<a class="nav-link active" aria-current="page" href="{% url 'vault:index' %}">Home</a>
+  				</li>
+  				<li class="nav-item">
+    				<a class="nav-link" href="{% url 'vault:index' %}">Vaults</a>
+  				</li>
+  				<li class="nav-item">
+    				<a class="nav-link" href="#">Settings</a>
+  				</li>
+  				<!--
+  				<li class="nav-item">
+    				<a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
+  				</li>
+  				-->
+			</ul>
 				</div>
-				<div align = "right">
-					<button>Settings</button>
-					<button>Logout</button>
+				<div class = "col-md-8">
+					<h3 class = "text-secondary">Infosec | <small>v1.0</small></h3>
+					<hr>
+					<div>
+						{% block content %}
+						{% endblock %}
+					</div>
 				</div>
-			</div>
-			<div class = "sidebar">
-				<div align = "center">
-					<ul>
-						<li><a href = "">Vaults</a></li>
-						<li><a href = "">Locks</a></li>
-					</ul>
-
-				</div>
-				
-			</div>
-			<div class = "content">
-				{% block content %}
-				{% endblock %}
-			</div>
-			<div class = "footer">
-				
 			</div>
 		</div>
+		<div align = "center" class = "add-btn-container">
+			<span>
+				<i class = "fa-solid fa-plus add-btn" id = "add-btn"></i>
+			</span>
+		</div>
+		<script src = "{% static 'vault/js/jquery-3.5.1.js' %}"></script>
+		<script src = "{% static 'vault/vendor/bootstrap5/bootstrap.min.js' %}"></script>
+		<script>
+			$("#add-btn").click(function(){
+				window.location = "{% url 'vault:addVault' %}"
+			})
+		</script>
+		{% block js%}
+		{% endblock %}
 	</body>
 </html>

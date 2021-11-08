@@ -1,0 +1,38 @@
+{% extends "vault/base.html" %}
+
+{% block title %}
+Vaults
+{% endblock %}
+
+{% block content %}
+<style>
+form p{
+	margin: 0;
+}
+
+form input{
+	margin-bottom: 3%;
+}
+</style>
+<div align = "left">
+	<div>
+		<h4 style = "margin-bottom: 3%">Add New Vault</h4>
+		<hr>
+		<div align = "" style = "width:45%;margin:auto;" id = "add-form-container">
+			<form method = "POST" action = "">
+				{% csrf_token %}
+				{{form.as_p}}
+				<input type = "submit" class = "btn btn-primary">
+			</form>
+		</div>
+	</div>
+</div>
+{% endblock %}
+
+{% block js%}
+<script>
+	$("#add-form-container").find("input").addClass('form-control')
+	$("#add-form-container").find("select").addClass('form-control')
+	$("#add-form-container").find("textarea").addClass('form-control')
+</script>
+{% endblock %}

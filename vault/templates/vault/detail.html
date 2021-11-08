@@ -1,0 +1,74 @@
+{% extends "vault/base.html" %}
+
+{% block title %}
+Vaults
+{% endblock %}
+
+{% block content %}
+<div align = "left">
+	<div>
+		<h4 style = "margin-bottom: 1.5%;display:inline-block">{{vault.title}}</h4>
+		<div align = "right" style = "display:inline-block;float:right">
+			<a class = "btn btn-primary">Edit Vault</a>
+			<a class = "btn btn-danger">Delete Vault</a>
+		</div>
+		<hr>
+		{% if vault.locked %}
+		<div>
+			<button class = "btn btn-danger" id = "unlock-btn">This Vault is Locked, Pls click to unlock</button>
+		</div>
+		<div style = "margin-top:50px;display:none;" id = "key-input-section">
+			<h5>Enter unlock key here</h5>
+			<form action = "{% url 'vault:unlock' %}" method = "POST">
+				{% csrf_token %}
+				<input type = "password" name = "key" id = "key">
+				<input type = "hidden" name = "vault" value = "{{vault.id}}">
+				<input type = "submit" class = "btn btn-success" value = "Unlock">
+			</form>
+		</div>
+		<script>
+			const unlock_btn = document.querySelector("#unlock-btn");
+			unlock_btn.addEventListener('click', function(){
+				document.querySelector("#key-input-section").style.display = 'block';
+			})
+		</script>
+		{% else %}
+		<div>
+			<div class = "vault-container">
+				<button class = "btn btn-success" disabled>Username:</button> <p>{{vault.username}}</p>
+				<button class = "btn btn-success" disabled>Password:</button> <p>{{vault.password}}</p>
+				<button class = "btn btn-success" disabled>E-mail:</button> <p>{{vault.email}}</p>
+				<button class = "btn btn-success" disabled>Other Information:</button> <p>{{vault.other_info}}</p>
+				<button class = "btn btn-success" disabled>category:</button> <p>{{vault.category}}</p>
+			</div>
+			<hr>
+		</div>
+		{% endif %}
+	</div>
+</div>
+{% endblock %}
+
+{% block js%}
+<script>
+	$(document).ready(function(){
+		$.ajax({
+			type: 'GET',
+			url: "{% url 'vault:instant_lock' %}",
+			data: {
+				'id':"{{vault.id}}",
+			},
+			success: function(response){
+				if(response['status'] == 'locked'){
+					console.log("Vault is locked successfully")
+				}
+				
+
+			},
+		});
+	})
+
+	function deleteVault(){
+		window.location = "{% url 'vault:delete' vault.id %}";
+	}
+</script>
+{% endblock %}

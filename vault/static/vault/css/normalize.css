@@ -14,7 +14,7 @@ html, body{
 	height: 100%;
 }
 
-button, h1, h2, h3, h4, h5, h6, p{
+button, h1, h2, h3, h4, h5, h6, p, input{
 	padding: 3px;
 	margin: 5px;
 	font-family: 'Rubik', sans-serif;
@@ -28,3 +28,7 @@ p{
 	font-family: sans-serif;
 }
 /*end of normalization*/
+
+input{
+	padding: 5px;
+}
