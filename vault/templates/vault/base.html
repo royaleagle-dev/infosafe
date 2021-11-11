@@ -17,13 +17,10 @@
 				<div class = "offset-md-1 col-md-2">
 					<ul class="nav flex-column">
   				<li class="nav-item">
-    				<a class="nav-link active" aria-current="page" href="{% url 'vault:index' %}">Home</a>
+    				<a class="nav-link active" aria-current="page" href="{% url 'vault:index' %}">Vaults</a>
   				</li>
   				<li class="nav-item">
-    				<a class="nav-link" href="{% url 'vault:index' %}">Vaults</a>
-  				</li>
-  				<li class="nav-item">
-    				<a class="nav-link" href="#">Settings</a>
+    				<a class="nav-link" href="{% url 'vault:settings' %}">Settings</a>
   				</li>
   				<!--
   				<li class="nav-item">
@@ -47,6 +44,13 @@
 				<i class = "fa-solid fa-plus add-btn" id = "add-btn"></i>
 			</span>
 		</div>
+		{% if messages %}
+		<div class = "message-center">
+			{% for message in messages %}
+			<p {% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</p>
+			{% endfor %}
+		</div>
+		{% endif %}
 		<script src = "{% static 'vault/js/jquery-3.5.1.js' %}"></script>
 		<script src = "{% static 'vault/vendor/bootstrap5/bootstrap.min.js' %}"></script>
 		<script>

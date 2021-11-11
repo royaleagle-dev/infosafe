@@ -7,10 +7,10 @@ Vaults
 {% block content %}
 <div align = "left">
 	<div>
-		<h4 style = "margin-bottom: 1.5%;display:inline-block">{{vault.title}}</h4>
+		<h4 style = "margin-bottom: 1.5%;display:inline-block" class = "text-success">{{vault.title}}</h4>
 		<div align = "right" style = "display:inline-block;float:right">
-			<a class = "btn btn-primary">Edit Vault</a>
-			<a class = "btn btn-danger">Delete Vault</a>
+			<a class = "btn btn-primary" href = "{% url 'vault:editVault' vault.id %}">Edit Vault</a>
+			<a class = "btn btn-danger" onclick = "deleteVault()">Delete Vault</a>
 		</div>
 		<hr>
 		{% if vault.locked %}
@@ -68,7 +68,10 @@ Vaults
 	})
 
 	function deleteVault(){
-		window.location = "{% url 'vault:delete' vault.id %}";
+		const confirmDelete = confirm("Do you really want to delete this vault? You'll not be able to recover any data linked to it.")
+		if(confirmDelete){
+			window.location = "{% url 'vault:delete' vault.id %}";
+		}
 	}
 </script>
 {% endblock %}

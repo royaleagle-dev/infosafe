@@ -10,5 +10,8 @@ urlpatterns = [
 	path('unlock/', views.unlock, name = 'unlock'),
 	path('delete/<int:id>', views.delete, name = 'delete'),
 	path('instant_lock', views.instant_lock, name = 'instant_lock'),
-	path('addVault', views.addVault, name = 'addVault')
+	path('addVault', views.AddVault.as_view(), name = 'addVault'),
+	path('search/<str:word>', views.search, name = 'search'),
+	path('editVault/<int:id>', views.editVault, name = 'editVault'),
+	path('settings', views.Settings.as_view(), name = 'settings'),
 ]

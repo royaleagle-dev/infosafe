@@ -19,7 +19,10 @@ Vaults
 		</form>
 	</div>
 	<div>
-		{% for vault in vaults %}
+		<h5>Search Results for <i>{{word}}</i></h5>
+	</div>
+	<div>
+		{% for vault in search %}
 			<div class = "vault-container" align = "left">
 				<p class = "vault-title">{{vault.title}}</p>
 				<hr>

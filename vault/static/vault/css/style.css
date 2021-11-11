@@ -115,7 +115,7 @@ button, a.green-bg, .btn{
 	height:100px;
 	width:100px;
 	box-shadow:5px 5px 10px lightgrey;
-	position:absolute;
+	position:fixed;
 	z-index:100;
 	right:5%;
 	bottom: 5%;
@@ -141,3 +141,14 @@ button, a.green-bg, .btn{
 	cursor: pointer;
 }
 
+.message-center{
+	padding:  20px;
+	position: fixed;
+	bottom: 5%;
+	left: 5%;
+	background-color: lightgrey;
+}
+
+.message-center p{
+	margin: 0;
+}
