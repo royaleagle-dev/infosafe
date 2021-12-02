@@ -6,6 +6,7 @@
 		<link rel = "stylesheet" href = "{% static 'vault/css/style.css' %}">
 		<link rel = "stylesheet" href = "{% static 'vault/vendor/bootstrap5/bootstrap.min.css' %}">
 		<link rel = "stylesheet" href = "{% static 'vault/vendor/fontawesome6/css/all.css' %}">
+		<link href="{% static 'vault/css/aos.css' %}" rel="stylesheet">
 		<meta name = 'author' content = "Ayotunde Okunubi">
 		<meta name = "viewport" content = "width=device-width, initial-scale=1.0, shrink-to-fit=No">
 		<meta name = "description" content = "">
@@ -53,6 +54,10 @@
 		{% endif %}
 		<script src = "{% static 'vault/js/jquery-3.5.1.js' %}"></script>
 		<script src = "{% static 'vault/vendor/bootstrap5/bootstrap.min.js' %}"></script>
+		<script src = "{% static 'vault/js/aos.js' %}"></script>
+		<script>
+			AOS.init();
+		</script>
 		<script>
 			$("#add-btn").click(function(){
 				window.location = "{% url 'vault:addVault' %}"

@@ -34,14 +34,13 @@ Vaults
 		</script>
 		{% else %}
 		<div>
-			<div class = "vault-container">
+			<div class = "vault-container" data-aos = "fade-up">
 				<button class = "btn btn-success" disabled>Username:</button> <p>{{vault.username}}</p>
 				<button class = "btn btn-success" disabled>Password:</button> <p>{{vault.password}}</p>
 				<button class = "btn btn-success" disabled>E-mail:</button> <p>{{vault.email}}</p>
 				<button class = "btn btn-success" disabled>Other Information:</button> <p>{{vault.other_info}}</p>
 				<button class = "btn btn-success" disabled>category:</button> <p>{{vault.category}}</p>
 			</div>
-			<hr>
 		</div>
 		{% endif %}
 	</div>
